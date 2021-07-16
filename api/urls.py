@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from api import views
 from api.views import TicketListView, TicketCreateView, TicketDetailView
 
 urlpatterns = [
     path('ticket/', TicketListView.as_view()),
     path('addticket/', TicketCreateView.as_view()),
     path('ticket/detail/<str:pk>/', TicketDetailView.as_view()),
+    path('iwaterProducts_list/', views.iwaterProducts_list),
+    path('iwaterProducts_detail/<int:pk>/', views.iwaterProducts_detail),
 ]
