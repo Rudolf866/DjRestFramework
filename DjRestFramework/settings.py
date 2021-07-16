@@ -46,8 +46,19 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework_api_key',
     'api',
 ]
+
+
+# settings.py
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework_api_key.permissions.HasAPIKey",
+    ]
+}
+
+API_KEY_CUSTOM_HEADER = "HTTP_X_AUTHORIZATION"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
